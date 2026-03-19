@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Starter | Staff Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <section class="section split-section is-visible auth-shell">
+        <a class="back-link" href="index.html" aria-label="Back to homepage">
+          <span class="back-link-icon" aria-hidden="true">←</span>
+          <span>Back</span>
+        </a>
+        <div class="section-heading compact">
+          <p class="eyebrow">Staff Login</p>
+          <h1>Sign in to the internal workspace.</h1>
+          <p class="hero-text">
+            Staff pages should be protected. Clients do not need accounts right now, but your team
+            should log in before viewing leads, mockups, and draft emails.
+          </p>
+        </div>
+        <form id="staff-login-form" class="auth-form">
+          <div class="auth-step" id="staff-login-primary-step">
+            <label>
+              Staff email
+              <input type="email" name="email" placeholder="you@youragency.com" required />
+            </label>
+            <label>
+              Staff password
+              <input type="password" name="password" placeholder="Enter staff password" required />
+            </label>
+            <div id="trusted-browser-note" class="auth-trusted-note" hidden>
+              This browser is already trusted for this staff email. You can sign in without a new verification code unless you reset all sessions.
+            </div>
+            <label class="auth-checkbox">
+              <input type="checkbox" name="rememberDevice" value="true" />
+              <span>Remember this browser for 30 days</span>
+            </label>
+          </div>
+          <div class="auth-step" id="staff-login-code-step" hidden>
+            <p class="auth-note">
+              We sent a one-time verification code to the approved staff email. Enter it below to finish signing in.
+            </p>
+            <label>
+              Verification code
+              <input
+                type="text"
+                name="code"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                placeholder="Enter 6-digit code"
+              />
+            </label>
+          </div>
+          <input type="hidden" name="challengeToken" />
+          <button type="submit" class="button button-primary" id="staff-login-submit-button">
+            Sign in
+          </button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

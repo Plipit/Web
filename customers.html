@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Starter | Customers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-header section split-section is-visible">
+        <nav class="topbar">
+          <a class="brand" href="staff-portal.html">
+            <span class="brand-mark">A</span>
+            <div>
+              <p class="brand-name">Your Agency Name</p>
+              <p class="brand-tag">Customer database</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="staff-portal.html">Staff Home</a>
+            <a href="leads.html">Leads</a>
+            <a href="customers.html" aria-current="page">Customers</a>
+          </div>
+          <div class="nav-actions">
+            <button id="staff-logout-all-button" class="button button-secondary nav-secondary-button" type="button">Log out all</button>
+            <button id="staff-logout-button" class="nav-cta" type="button">Log out</button>
+          </div>
+        </nav>
+
+        <div class="page-intro">
+          <p class="eyebrow">Customer Database</p>
+          <h1>Track every paying client in one place.</h1>
+          <p class="hero-text">
+            Once a lead becomes an active client, they land here with their contact details, monthly plan, billing status, and internal notes.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section metrics-section is-visible">
+          <article class="metric-card">
+            <p class="metric-label">Customers</p>
+            <p class="metric-value" id="customers-total">Loading</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Monthly revenue</p>
+            <p class="metric-value" id="customers-revenue">Loading</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Active billing</p>
+            <p class="metric-value" id="customers-active-billing">Loading</p>
+          </article>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Client List</p>
+            <h2>Active clients and their monthly plan details.</h2>
+          </div>
+          <div id="customers-list" class="lead-summary">
+            <article class="summary-card">
+              <h3>No customers yet</h3>
+              <p>Move a lead into Active Client and it will appear here automatically.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

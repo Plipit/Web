@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Starter | Proposal Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-header section split-section is-visible">
+        <nav class="topbar">
+          <a class="brand" href="staff-portal.html">
+            <span class="brand-mark">A</span>
+            <div>
+              <p class="brand-name">Your Agency Name</p>
+              <p class="brand-tag">Proposal draft preview</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="staff-portal.html">Staff Home</a>
+            <a href="leads.html">Leads</a>
+          </div>
+          <div class="nav-actions">
+            <button id="staff-logout-all-button" class="button button-secondary nav-secondary-button" type="button">Log out all</button>
+            <button id="staff-logout-button" class="nav-cta" type="button">Log out</button>
+          </div>
+        </nav>
+
+        <div class="page-intro">
+          <p class="eyebrow">Proposal Preview</p>
+          <h1 id="proposal-preview-title">Proposal draft for the selected lead.</h1>
+          <p class="hero-text" id="proposal-preview-subtitle">
+            This preview turns the lead details into a cleaner project recommendation you can use after the call.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section proposal-stage is-visible">
+          <div class="proposal-stage-grid">
+            <article class="proposal-hero-card">
+              <p class="eyebrow">Presentation View</p>
+              <h2 id="proposal-stage-headline">A polished website direction prepared for this client.</h2>
+              <p class="hero-text" id="proposal-stage-copy">
+                This page is meant to be screen-shared during the call so the client can quickly understand the direction, scope, and next step.
+              </p>
+            </article>
+            <article class="proposal-highlight-card">
+              <p class="mini-label">Recommended approach</p>
+              <p class="proposal-highlight" id="proposal-stage-highlight">Loading...</p>
+              <div class="proposal-agenda">
+                <span>Positioning</span>
+                <span>Scope</span>
+                <span>Timeline</span>
+                <span>Next step</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Project Summary</p>
+            <h2>High-level framing for the client proposal.</h2>
+          </div>
+          <div class="lead-summary">
+            <article class="summary-card">
+              <h3>Client</h3>
+              <p id="proposal-client">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Project</h3>
+              <p id="proposal-project-type">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Main goal</h3>
+              <p id="proposal-goal">Loading...</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-dark is-visible">
+          <div class="section-heading">
+            <p class="eyebrow">Recommended Scope</p>
+            <h2 id="proposal-scope-title">Recommended website package for this project.</h2>
+          </div>
+          <div class="proposal-scope-grid">
+            <article class="service-card">
+              <h3>Core deliverables</h3>
+              <p id="proposal-deliverables">Loading...</p>
+            </article>
+            <article class="service-card">
+              <h3>Suggested timeline</h3>
+              <p id="proposal-timeline">Loading...</p>
+            </article>
+            <article class="service-card">
+              <h3>Best next step</h3>
+              <p id="proposal-action">Loading...</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Simple Monthly Plan</p>
+            <h2>One affordable offer while you target niche service businesses and build proof.</h2>
+          </div>
+          <div class="pricing-grid pricing-grid-single">
+            <article class="pricing-card pricing-card-featured">
+              <p class="mini-label">Monthly Website Package</p>
+              <h3 id="proposal-monthly-plan-name">Loading...</h3>
+              <p class="pricing-value" id="proposal-monthly-plan-price">Loading...</p>
+              <p class="pricing-copy" id="proposal-monthly-plan-copy">Loading...</p>
+            </article>
+          </div>
+          <div class="investment-summary">
+            <article class="summary-card">
+              <h3>Offer summary</h3>
+              <p id="proposal-investment-summary">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Timeline path</h3>
+              <p id="proposal-timeline-summary">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Best fit on the call</h3>
+              <p id="proposal-call-guidance">Loading...</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Proposal Notes</p>
+            <h2>What you would likely position in the follow-up.</h2>
+          </div>
+          <div class="proposal-note-grid">
+            <article class="summary-card">
+              <h3>Why this scope fits</h3>
+              <p id="proposal-fit">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Optional add-ons</h3>
+              <p id="proposal-addons">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Call follow-up angle</h3>
+              <p id="proposal-followup">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Monthly positioning</h3>
+              <p id="proposal-retainer-summary">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Best for small service businesses</h3>
+              <p id="proposal-small-business-note">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>How to frame the plan</h3>
+              <p id="proposal-retainer-timing">Loading...</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Payment And Kickoff</p>
+            <h2>Make the next step easy to understand after the call.</h2>
+          </div>
+          <div class="proposal-note-grid">
+            <article class="summary-card">
+              <h3>Suggested payment structure</h3>
+              <p id="proposal-deposit-line">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Kickoff recommendation</h3>
+              <p id="proposal-kickoff-line">Loading...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Send-ready summary</h3>
+              <p id="proposal-send-ready-summary">Loading...</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Optional Add-Ons</p>
+            <h2>Extra scope you can introduce only if the client wants more depth.</h2>
+          </div>
+          <div class="proposal-note-grid" id="proposal-addon-grid">
+            <article class="summary-card">
+              <h3>Loading add-ons</h3>
+              <p>Optional add-ons will appear here.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Next Steps</p>
+            <h2>A clean handoff path after the call.</h2>
+          </div>
+          <div class="summary-card">
+            <ol class="proposal-next-steps" id="proposal-next-steps-list">
+              <li>Loading next steps...</li>
+            </ol>
+          </div>
+          <div class="contact-actions">
+            <a id="proposal-preview-back" class="button button-secondary" href="leads.html">Back to lead</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

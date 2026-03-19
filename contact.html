@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Starter | Intake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-header section split-section is-visible">
+        <nav class="topbar">
+          <a class="brand" href="staff-portal.html">
+            <span class="brand-mark">A</span>
+            <div>
+              <p class="brand-name">Your Agency Name</p>
+              <p class="brand-tag">Internal intake workflow</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="staff-portal.html">Staff Home</a>
+            <a href="contact.html" aria-current="page">Intake</a>
+            <a href="leads.html">Leads</a>
+          </div>
+          <div class="nav-actions">
+            <button id="staff-logout-all-button" class="button button-secondary nav-secondary-button" type="button">Log out all</button>
+            <button id="staff-logout-button" class="nav-cta" type="button">Log out</button>
+          </div>
+        </nav>
+
+        <div class="page-intro">
+          <p class="eyebrow">Internal Flow</p>
+          <h1>Public brief on the front, private review on the back.</h1>
+          <p class="hero-text">
+            This page is your internal explanation of the workflow: prospects submit the brief,
+            then your team reviews the intake inside the leads dashboard before the call.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-dark is-visible">
+          <div class="section-heading">
+            <p class="eyebrow">Workflow</p>
+            <h2>How the intake system now works.</h2>
+          </div>
+          <div class="pillars">
+            <article class="service-card">
+              <h3>Client submits the project brief</h3>
+              <p>The public intake form sends the lead into the local backend.</p>
+            </article>
+            <article class="service-card">
+              <h3>You review it privately</h3>
+              <p>Each submission lands in the internal leads page so you can prep before the Zoom call.</p>
+            </article>
+            <article class="service-card">
+              <h3>You build from there</h3>
+              <p>Once the lead flow is stable, we can layer in proposal generation or automated prep notes.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1773901001001,
+    "name": "Miguel Santos",
+    "email": "miguel@blueskypools.com",
+    "company": "Blue Sky Pool Service",
+    "projectType": "new website",
+    "goal": "get more local quote requests and look more legit online",
+    "style": "clean, trustworthy, and simple",
+    "preferredTime": "Monday 10am",
+    "message": "We are a small pool service company and mainly need a clean website with service info, photos, and a way for homeowners to request quotes.",
+    "submittedAt": "2026-03-19T03:50:00.000Z",
+    "meetingAccepted": true,
+    "acceptedAt": "2026-03-19T03:55:00.000Z",
+    "pipelineStatus": "new",
+    "internalNotes": [],
+    "activityLog": [
+      {
+        "id": "1773953493110-4x9hnu",
+        "type": "status_changed",
+        "message": "Lead moved from confirmed to new.",
+        "createdAt": "2026-03-19T20:51:33.110Z"
+      }
+    ],
+    "updatedAt": "2026-03-19T20:51:33.110Z"
+  },
+  {
+    "id": 1773901002002,
+    "name": "Alyssa Tran",
+    "email": "alyssa@northpeakdental.com",
+    "company": "North Peak Dental",
+    "projectType": "website redesign",
+    "goal": "book more appointment requests and improve trust with new patients",
+    "style": "premium, modern, and approachable",
+    "preferredTime": "Tuesday 1pm",
+    "message": "We want a more polished redesign with stronger messaging, service pages, testimonials, and online appointment booking so the site converts better.",
+    "submittedAt": "2026-03-19T04:05:00.000Z",
+    "meetingAccepted": true,
+    "acceptedAt": "2026-03-19T04:10:00.000Z",
+    "pipelineStatus": "new",
+    "updatedAt": "2026-03-19T20:51:31.694Z",
+    "internalNotes": [],
+    "activityLog": [
+      {
+        "id": "1773953491694-euk3pf",
+        "type": "status_changed",
+        "message": "Lead moved from active client to new.",
+        "createdAt": "2026-03-19T20:51:31.694Z"
+      }
+    ]
+  },
+  {
+    "id": 1773901003003,
+    "name": "Jordan Patel",
+    "email": "jordan@opsflowgroup.com",
+    "company": "OpsFlow Group",
+    "projectType": "custom web platform",
+    "goal": "streamline intake, automate client onboarding, and connect website leads into our internal crm",
+    "style": "high-end, sharp, and enterprise-ready",
+    "preferredTime": "Thursday 3pm",
+    "message": "We need a larger build with a client portal, CRM integration, dashboard visibility, custom intake flows, and room for AI-assisted workflow automation later on.",
+    "submittedAt": "2026-03-19T04:20:00.000Z",
+    "meetingAccepted": true,
+    "acceptedAt": "2026-03-19T04:25:00.000Z",
+    "pipelineStatus": "new",
+    "updatedAt": "2026-03-19T20:51:29.912Z",
+    "internalNotes": [],
+    "activityLog": [
+      {
+        "id": "1773953489913-jlcw9a",
+        "type": "status_changed",
+        "message": "Lead moved from active client to new.",
+        "createdAt": "2026-03-19T20:51:29.913Z"
+      }
+    ]
+  },
+  {
+    "id": 1773939654152,
+    "name": "Email Live Test",
+    "email": "client@testexample.com",
+    "company": "Signal Pool Co",
+    "projectType": "website",
+    "goal": "get more quote requests",
+    "style": "clean and premium",
+    "preferredTime": "Friday 2pm",
+    "message": "Testing the real email notification path.",
+    "submittedAt": "2026-03-19T17:00:54.152Z",
+    "meetingAccepted": true,
+    "acceptedAt": "2026-03-19T17:02:43.630Z",
+    "pipelineStatus": "new",
+    "internalNotes": [],
+    "activityLog": [
+      {
+        "id": "1773953494010-p0ibw9",
+        "type": "status_changed",
+        "message": "Lead moved from confirmed to new.",
+        "createdAt": "2026-03-19T20:51:34.010Z"
+      }
+    ],
+    "updatedAt": "2026-03-19T20:51:34.010Z"
+  }
+]

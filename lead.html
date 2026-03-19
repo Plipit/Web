@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Starter | Lead Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-header section split-section is-visible">
+        <nav class="topbar">
+          <a class="brand" href="staff-portal.html">
+            <span class="brand-mark">A</span>
+            <div>
+              <p class="brand-name">Your Agency Name</p>
+              <p class="brand-tag">Lead detail and mockup prep</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="staff-portal.html">Staff Home</a>
+            <a href="contact.html">Intake</a>
+            <a href="leads.html" aria-current="page">Leads</a>
+            <a href="customers.html">Customers</a>
+          </div>
+          <div class="nav-actions">
+            <button id="staff-logout-all-button" class="button button-secondary nav-secondary-button" type="button">Log out all</button>
+            <button id="staff-logout-button" class="nav-cta" type="button">Log out</button>
+          </div>
+        </nav>
+
+        <div class="page-intro">
+          <a class="back-link" href="leads.html" aria-label="Back to all leads">
+            <span class="back-link-icon" aria-hidden="true">←</span>
+            <span>All Leads</span>
+          </a>
+          <p class="eyebrow">Lead Detail</p>
+          <div class="lead-header-meta">
+            <span class="status-badge status-badge-review" id="lead-stage-badge">Loading stage</span>
+          </div>
+          <h1 id="lead-detail-title">Preparing lead details...</h1>
+          <p class="hero-text" id="lead-detail-copy">
+            This page combines the client brief, mockup direction, and next scheduling actions in one place.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section metrics-section is-visible" id="lead-metrics">
+          <article class="metric-card">
+            <p class="metric-label">Project</p>
+            <p class="metric-value" id="metric-project">Loading</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Preferred time</p>
+            <p class="metric-value" id="metric-time">Loading</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Status</p>
+            <p class="metric-value" id="metric-status">Pending review</p>
+          </article>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Pipeline Status</p>
+            <h2>Track where this lead is in the process.</h2>
+          </div>
+          <div class="lead-summary">
+            <article class="summary-card">
+              <h3>Current stage</h3>
+              <p id="pipeline-stage-copy">Loading current stage...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Next staff action</h3>
+              <p id="pipeline-next-action">Loading next action...</p>
+            </article>
+            <article class="summary-card">
+              <h3>Call readiness</h3>
+              <p id="pipeline-readiness">Loading call readiness...</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Client Brief</p>
+            <h2>All submitted details in one place.</h2>
+          </div>
+          <div id="lead-brief" class="lead-summary">
+            <article class="summary-card">
+              <h3>Loading brief</h3>
+              <p>Please wait while we load the lead data.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Internal Notes</p>
+            <h2>Keep call notes and handoff context in one place.</h2>
+          </div>
+          <form id="lead-note-form" class="lead-form">
+            <label>
+              Add note
+              <textarea
+                id="lead-note-input"
+                name="note"
+                rows="4"
+                placeholder="Add internal notes, follow-up context, or anything your partner should see later."
+              ></textarea>
+            </label>
+            <div class="contact-actions">
+              <button id="lead-note-submit" class="button button-primary" type="submit">Save note</button>
+            </div>
+            <p id="lead-note-status" class="form-status" aria-live="polite"></p>
+          </form>
+          <div id="lead-notes-list" class="lead-summary">
+            <article class="summary-card">
+              <h3>No notes yet</h3>
+              <p>Add internal notes here so you and your partner keep context on the lead.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Lead Activity</p>
+            <h2>Track how this lead has moved through the system.</h2>
+          </div>
+          <div id="lead-activity-list" class="lead-summary">
+            <article class="summary-card">
+              <h3>Loading activity</h3>
+              <p>The lead timeline will appear here once the record is loaded.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-dark is-visible">
+          <div class="section-heading">
+            <p class="eyebrow">Mockup Direction</p>
+            <h2 id="mockup-title">Starter direction for the client website.</h2>
+          </div>
+          <div class="pillars">
+            <article class="service-card">
+              <h3>Hero concept</h3>
+              <p id="mockup-hero">Lead with a clearer message and a stronger first impression.</p>
+            </article>
+            <article class="service-card">
+              <h3>Suggested pages</h3>
+              <p id="mockup-pages">Home, services, about, contact, and one focused conversion page.</p>
+            </article>
+            <article class="service-card">
+              <h3>Design feel</h3>
+              <p id="mockup-style">Modern, trustworthy, and easy to scan.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Homepage Draft</p>
+            <h2>Use this as the first direction for messaging on the call.</h2>
+          </div>
+          <div class="lead-summary">
+            <article class="summary-card">
+              <h3>Hero headline</h3>
+              <p id="draft-headline">A clearer homepage headline will appear here.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Hero subcopy</h3>
+              <p id="draft-subcopy">Supporting homepage copy will appear here.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Main CTA</h3>
+              <p id="draft-cta">Suggested CTA direction will appear here.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Recommended Sections</p>
+            <h2>A strong first site structure for this client.</h2>
+          </div>
+          <div class="pillars">
+            <article class="pillar">
+              <h3>Section order</h3>
+              <p id="proposal-sections">Recommended homepage section order will appear here.</p>
+            </article>
+            <article class="pillar">
+              <h3>Trust elements</h3>
+              <p id="proposal-proof">Suggested proof and credibility sections will appear here.</p>
+            </article>
+            <article class="pillar">
+              <h3>Sales angle</h3>
+              <p id="proposal-angle">Suggested positioning angle will appear here.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Proposal Snapshot</p>
+            <h2>Fast notes you can use during the call or in a follow-up.</h2>
+          </div>
+          <div class="lead-summary">
+            <article class="summary-card">
+              <h3>Recommended package</h3>
+              <p id="proposal-package">Recommended package notes will appear here.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Why this project matters</h3>
+              <p id="proposal-why">Strategic reasoning for the project will appear here.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Best next step</h3>
+              <p id="proposal-next-step">The strongest next step will appear here.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Scheduling Actions</p>
+            <h2>Accept the proposed time or keep this lead in review.</h2>
+          </div>
+          <div class="pillars">
+            <article class="pillar">
+              <h3>Proposed meeting</h3>
+              <p id="schedule-time">No preferred time submitted yet.</p>
+            </article>
+            <article class="pillar">
+              <h3>What acceptance will do later</h3>
+              <p>When wired up, this can create the Zoom link and send confirmation emails automatically.</p>
+            </article>
+            <article class="pillar">
+              <h3>Current behavior</h3>
+              <p id="schedule-status-copy">Clicking accept stores the meeting as approved inside the local lead record.</p>
+            </article>
+          </div>
+          <div class="contact-actions">
+            <button id="accept-time-button" class="button button-primary" type="button">Accept proposed time</button>
+            <a id="proposal-preview-link" class="button button-secondary" href="proposal-preview.html">Preview proposal</a>
+            <a id="email-preview-link" class="button button-secondary" href="email-preview.html">Preview email draft</a>
+            <a class="button button-secondary" href="leads.html">Back to all leads</a>
+          </div>
+          <p id="accept-status" class="form-status" aria-live="polite"></p>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

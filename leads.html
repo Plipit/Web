@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Starter | Leads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-header section split-section is-visible">
+        <nav class="topbar">
+          <a class="brand" href="staff-portal.html">
+            <span class="brand-mark">A</span>
+            <div>
+              <p class="brand-name">Your Agency Name</p>
+              <p class="brand-tag">Private lead review</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="staff-portal.html">Staff Home</a>
+            <a href="contact.html">Intake</a>
+            <a href="leads.html" aria-current="page">Leads</a>
+            <a href="customers.html">Customers</a>
+          </div>
+          <div class="nav-actions">
+            <button id="staff-logout-all-button" class="button button-secondary nav-secondary-button" type="button">Log out all</button>
+            <button id="staff-logout-button" class="nav-cta" type="button">Log out</button>
+          </div>
+        </nav>
+
+        <div class="page-intro">
+          <p class="eyebrow">Internal Dashboard</p>
+          <h1>Review project briefs before the call.</h1>
+          <p class="hero-text">
+            This page pulls submissions from the local backend so you can scan who came in, what
+            they want, and when they prefer to talk.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section metrics-section is-visible">
+          <article class="metric-card">
+            <p class="metric-label">Pipeline view</p>
+            <p class="metric-value" id="pipeline-total">Loading</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Needs review</p>
+            <p class="metric-value" id="pipeline-pending">Loading</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Calls confirmed</p>
+            <p class="metric-value" id="pipeline-confirmed">Loading</p>
+          </article>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">Lead List</p>
+            <h2>Newest leads appear here with a clearer stage and next step.</h2>
+          </div>
+          <div class="lead-controls">
+            <label class="lead-control">
+              <span>Search</span>
+              <input
+                id="lead-search-input"
+                type="search"
+                placeholder="Search company, name, email, or project"
+                autocomplete="off"
+              />
+            </label>
+            <label class="lead-control">
+              <span>Filter</span>
+              <select id="lead-stage-filter">
+                <option value="all">All leads</option>
+                <option value="open">Open pipeline</option>
+                <option value="new">New</option>
+                <option value="review">Needs Review</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="active">Active Client</option>
+                <option value="closed">Closed</option>
+                <option value="archived">Archived</option>
+              </select>
+            </label>
+            <label class="lead-control">
+              <span>Sort</span>
+              <select id="lead-sort-select">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="company">Company A-Z</option>
+                <option value="status">Status</option>
+              </select>
+            </label>
+          </div>
+          <div id="leads-list" class="pipeline-board">
+            <article class="pipeline-column" data-pipeline-status="new">
+              <div class="pipeline-column-head">
+                <p class="eyebrow">New</p>
+                <p class="pipeline-count" id="pipeline-new-count">0</p>
+              </div>
+              <div id="leads-list-new" class="pipeline-list">
+                <article class="summary-card">
+                  <h3>No leads yet</h3>
+                  <p>Submit the client form to create your first saved project brief.</p>
+                </article>
+              </div>
+            </article>
+            <article class="pipeline-column" data-pipeline-status="review">
+              <div class="pipeline-column-head">
+                <p class="eyebrow">Needs Review</p>
+                <p class="pipeline-count" id="pipeline-review-count">0</p>
+              </div>
+              <div id="leads-list-review" class="pipeline-list"></div>
+            </article>
+            <article class="pipeline-column" data-pipeline-status="confirmed">
+              <div class="pipeline-column-head">
+                <p class="eyebrow">Confirmed</p>
+                <p class="pipeline-count" id="pipeline-confirmed-count">0</p>
+              </div>
+              <div id="leads-list-confirmed" class="pipeline-list"></div>
+            </article>
+            <article class="pipeline-column" data-pipeline-status="active_client">
+              <div class="pipeline-column-head">
+                <p class="eyebrow">Active Client</p>
+                <p class="pipeline-count" id="pipeline-active-count">0</p>
+              </div>
+              <div id="leads-list-active" class="pipeline-list"></div>
+            </article>
+            <article class="pipeline-column" data-pipeline-status="closed">
+              <div class="pipeline-column-head">
+                <p class="eyebrow">Closed</p>
+                <p class="pipeline-count" id="pipeline-closed-count">0</p>
+              </div>
+              <div id="leads-list-closed" class="pipeline-list"></div>
+            </article>
+            <article class="pipeline-column" data-pipeline-status="archived">
+              <div class="pipeline-column-head">
+                <p class="eyebrow">Archived</p>
+                <p class="pipeline-count" id="pipeline-archived-count">0</p>
+              </div>
+              <div id="leads-list-archived" class="pipeline-list"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

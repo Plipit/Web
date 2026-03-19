@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Starter | Project Intake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-header section split-section is-visible">
+        <nav class="topbar">
+          <a class="brand" href="client-portal.html">
+            <span class="brand-mark">A</span>
+            <div>
+              <p class="brand-name">Your Agency Name</p>
+              <p class="brand-tag">Project intake and strategy booking</p>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="client-portal.html">Client Home</a>
+            <a href="services.html">Services</a>
+            <a href="client-view.html" aria-current="page">Start Project</a>
+            <a href="staff-login.html">Staff Login</a>
+          </div>
+          <a class="nav-cta" href="#book-call">Book a call</a>
+        </nav>
+
+        <div class="page-intro">
+          <p class="eyebrow">Start Your Project</p>
+          <h1>Share the essentials, then book a strategy call with real direction behind it.</h1>
+          <p class="hero-text">
+            We use your brief to understand the business, the current gap, and what the new site
+            should do better so the conversation feels prepared instead of generic.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section intake-overview is-visible">
+          <div class="lead-summary">
+            <article class="summary-card">
+              <h3>Share the business context</h3>
+              <p>We want to know what the business does, what the current gap is, and what the site needs to improve.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Get a sharper recommendation</h3>
+              <p>Your project brief helps shape a more realistic direction for scope, pricing, and next steps before the first call.</p>
+            </article>
+            <article class="summary-card">
+              <h3>Keep the first version focused</h3>
+              <p>The best projects start with clarity and a strong launch plan, then expand only where it actually creates value.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section contact-section is-visible" id="project-form">
+          <div class="contact-card">
+            <div>
+              <p class="eyebrow">Project Brief</p>
+              <h2>Give us the context we need to make the first call worth your time.</h2>
+              <p class="contact-copy">
+                The strongest projects start with clarity. A little context up front helps us shape
+                the right recommendation for your business instead of guessing on the call.
+              </p>
+              <div class="contact-details">
+                <p><strong>Call format:</strong> Zoom strategy call</p>
+                <p><strong>Focus:</strong> Positioning, scope, conversion goals, and next steps</p>
+                <p><strong>Best for:</strong> New sites, redesigns, landing pages, and growth-focused planning</p>
+              </div>
+            </div>
+            <form class="lead-form">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@company.com" required />
+              </label>
+              <label>
+                Company
+                <input type="text" name="company" placeholder="Company or project name" required />
+              </label>
+              <label>
+                Project type
+                <input type="text" name="projectType" placeholder="Website, redesign, landing page, strategy" required />
+              </label>
+              <label>
+                Main goal
+                <input type="text" name="goal" placeholder="More leads, stronger trust, clearer messaging" required />
+              </label>
+              <label>
+                Style or vibe
+                <input type="text" name="style" placeholder="Modern, premium, minimal, bold, polished" />
+              </label>
+              <label>
+                Message
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us about your business and what you want the new site to do."
+                ></textarea>
+              </label>
+              <button type="submit" class="button button-primary">Send project brief</button>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible" id="book-call">
+          <div class="section-heading compact">
+            <p class="eyebrow">Book A Call</p>
+            <h2>Choose a time once your intake details are in.</h2>
+          </div>
+          <div class="calendly-shell">
+            <div
+              id="calendly-placeholder"
+              class="calendly-card"
+              data-calendly-url="https://calendly.com/recruitmainisop/30min"
+            >
+              <p class="mini-label">Calendly booking</p>
+              <h3>Your strategy call can now be booked directly through Calendly.</h3>
+              <p>
+                Once your brief is submitted, choose your meeting time directly through Calendly
+                below. That keeps scheduling in one place and gives us a cleaner next step before
+                the call.
+              </p>
+              <div
+                class="calendly-inline-widget"
+                data-url="https://calendly.com/recruitmainisop/30min"
+                style="min-width: 320px; height: 760px;"
+              ></div>
+              <div class="contact-actions">
+                <a
+                  id="calendly-link"
+                  class="button button-secondary"
+                  href="https://calendly.com/recruitmainisop/30min"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open Calendly in a new tab
+                </a>
+                <a class="button button-secondary" href="#project-form">Edit project brief</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-dark is-visible">
+          <div class="section-heading">
+            <p class="eyebrow">Before We Meet</p>
+            <h2>What helps us make the first call more useful.</h2>
+          </div>
+          <div class="pillars">
+            <article class="service-card">
+              <h3>Business context</h3>
+              <p>What the company does, who it serves, and where the current website or online presence is falling short.</p>
+            </article>
+            <article class="service-card">
+              <h3>Clear goals</h3>
+              <p>Whether the focus is more leads, stronger trust, easier booking, or a cleaner first impression, clarity changes the recommendation.</p>
+            </article>
+            <article class="service-card">
+              <h3>Visual direction</h3>
+              <p>Even a rough sense of the style or vibe helps shape a direction that feels more aligned from the beginning.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section is-visible">
+          <div class="section-heading compact">
+            <p class="eyebrow">What Happens Next</p>
+            <h2>What the process looks like after you reach out.</h2>
+          </div>
+          <div class="pillars">
+            <article class="pillar">
+              <h3>Step 1</h3>
+              <p>You share the business context, goals, and direction so the project starts with clarity.</p>
+            </article>
+            <article class="pillar">
+              <h3>Step 2</h3>
+              <p>You choose a strategy call time directly in Calendly so scheduling stays simple and consistent.</p>
+            </article>
+            <article class="pillar">
+              <h3>Step 3</h3>
+              <p>We review the brief ahead of time and come into the call with a sharper recommendation for your site.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
