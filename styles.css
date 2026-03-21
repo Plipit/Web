@@ -54,7 +54,6 @@ body::before {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 1rem 0 4.5rem;
-  animation: page-enter 280ms ease both;
 }
 
 .hero,
@@ -87,6 +86,7 @@ body::before {
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 1.2rem;
+  min-height: 5.4rem;
   padding: 0.95rem 1.1rem;
   border: 1px solid rgba(255, 255, 255, 0.54);
   background: rgba(248, 253, 253, 0.72);
@@ -223,6 +223,7 @@ body::before {
 }
 
 .nav-cta {
+  min-width: 9.5rem;
   padding: 0.85rem 1.15rem;
   background: linear-gradient(135deg, var(--forest-deep), var(--forest));
   color: var(--white);
@@ -1093,18 +1094,6 @@ h2 {
   line-height: 1.7;
 }
 
-@keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1119,7 +1108,6 @@ h2 {
   .booking-card,
   .button,
   .nav-cta {
-    animation: none;
     transition: none;
   }
 }
