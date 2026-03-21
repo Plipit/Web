@@ -135,6 +135,9 @@ const readCustomers = () => {
     monthlyFee: 75,
     billingStatus: "active",
     internalNotes: [],
+    startDate: "",
+    lastPaidDate: "",
+    nextInvoiceDate: "",
     ...customer,
   }));
 };
@@ -355,6 +358,9 @@ const upsertCustomerFromLead = (lead) => {
     existing.updatedAt = timestamp;
     existing.billingStatus = existing.billingStatus || "active";
     existing.monthlyFee = Number(existing.monthlyFee) || 75;
+    existing.startDate = existing.startDate || timestamp.slice(0, 10);
+    existing.lastPaidDate = existing.lastPaidDate || "";
+    existing.nextInvoiceDate = existing.nextInvoiceDate || "";
     appendCustomerActivity(existing, "customer_synced", "Customer record refreshed from lead activity.");
   } else {
     customers.unshift({
@@ -368,6 +374,9 @@ const upsertCustomerFromLead = (lead) => {
       style: lead.style || "",
       monthlyFee: 75,
       billingStatus: "active",
+      startDate: timestamp.slice(0, 10),
+      lastPaidDate: "",
+      nextInvoiceDate: "",
       leadStatus: lead.pipelineStatus || getPipelineStatus(lead),
       createdAt: timestamp,
       updatedAt: timestamp,
@@ -1081,6 +1090,9 @@ const server = http.createServer((request, response) => {
       .then((payload) => {
         const monthlyFee = Number(payload.monthlyFee);
         const billingStatus = normalizeText(payload.billingStatus, 40) || customer.billingStatus;
+        const startDate = normalizeText(payload.startDate, 40);
+        const lastPaidDate = normalizeText(payload.lastPaidDate, 40);
+        const nextInvoiceDate = normalizeText(payload.nextInvoiceDate, 40);
         const note = normalizeText(payload.note, 1500);
 
         if (Number.isFinite(monthlyFee) && monthlyFee > 0) {
@@ -1088,6 +1100,9 @@ const server = http.createServer((request, response) => {
         }
 
         customer.billingStatus = billingStatus;
+        customer.startDate = startDate || customer.startDate;
+        customer.lastPaidDate = lastPaidDate;
+        customer.nextInvoiceDate = nextInvoiceDate;
         customer.updatedAt = new Date().toISOString();
 
         if (note) {

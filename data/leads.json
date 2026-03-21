@@ -12,9 +12,15 @@
     "submittedAt": "2026-03-19T03:50:00.000Z",
     "meetingAccepted": true,
     "acceptedAt": "2026-03-19T03:55:00.000Z",
-    "pipelineStatus": "new",
+    "pipelineStatus": "review",
     "internalNotes": [],
     "activityLog": [
+      {
+        "id": "1773970405534-yu2dpg",
+        "type": "status_changed",
+        "message": "Lead moved from new to review.",
+        "createdAt": "2026-03-20T01:33:25.534Z"
+      },
       {
         "id": "1773953493110-4x9hnu",
         "type": "status_changed",
@@ -22,7 +28,7 @@
         "createdAt": "2026-03-19T20:51:33.110Z"
       }
     ],
-    "updatedAt": "2026-03-19T20:51:33.110Z"
+    "updatedAt": "2026-03-20T01:33:25.534Z"
   },
   {
     "id": 1773901002002,

@@ -53,14 +53,25 @@ const checkTrustedBrowserStatus = async () => {
   }
 };
 
-staffLoginForm?.querySelector('input[name="email"]')?.addEventListener("input", () => {
+const staffLoginEmailInput = staffLoginForm?.querySelector('input[name="email"]');
+
+staffLoginEmailInput?.addEventListener("input", () => {
   window.clearTimeout(window.__trustedStatusTimer);
   window.__trustedStatusTimer = window.setTimeout(checkTrustedBrowserStatus, 250);
 });
 
-staffLoginForm?.querySelector('input[name="email"]')?.addEventListener("blur", checkTrustedBrowserStatus);
+staffLoginEmailInput?.addEventListener("change", checkTrustedBrowserStatus);
+staffLoginEmailInput?.addEventListener("blur", checkTrustedBrowserStatus);
 
-checkTrustedBrowserStatus();
+const scheduleTrustedBrowserChecks = () => {
+  checkTrustedBrowserStatus();
+  [150, 500, 1200].forEach((delay) => {
+    window.setTimeout(checkTrustedBrowserStatus, delay);
+  });
+};
+
+scheduleTrustedBrowserChecks();
+window.addEventListener("load", scheduleTrustedBrowserChecks);
 
 staffLoginForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -469,17 +480,97 @@ const renderCustomers = (customers) => {
       (customer) => `
         <article class="summary-card">
           <h3>${escapeHtml(customer.company || "Untitled customer")}</h3>
+          <p><strong>Billing:</strong> <span class="status-badge status-badge-${escapeHtml(customer.billingStatus || "active")}">${escapeHtml(customer.billingStatus || "active")}</span></p>
           <p><strong>Name:</strong> ${escapeHtml(customer.name || "Unknown")}</p>
           <p><strong>Email:</strong> ${escapeHtml(customer.email || "Unknown")}</p>
           <p><strong>Project:</strong> ${escapeHtml(customer.projectType || "Unknown")}</p>
-          <p><strong>Monthly plan:</strong> $${escapeHtml(customer.monthlyFee || 75)}/mo</p>
-          <p><strong>Billing:</strong> ${escapeHtml(customer.billingStatus || "active")}</p>
           <p><strong>Goal:</strong> ${escapeHtml(customer.goal || "Not set")}</p>
+          <p><strong>Start date:</strong> ${escapeHtml(customer.startDate || "Not set")}</p>
+          <p><strong>Last paid:</strong> ${escapeHtml(customer.lastPaidDate || "Not set")}</p>
+          <p><strong>Next invoice:</strong> ${escapeHtml(customer.nextInvoiceDate || "Not set")}</p>
+          <form class="customer-form" data-customer-id="${escapeHtml(customer.id)}">
+            <label>
+              Monthly fee
+              <input type="number" name="monthlyFee" min="50" max="1000" step="1" value="${escapeHtml(customer.monthlyFee || 75)}" />
+            </label>
+            <label>
+              Billing status
+              <select name="billingStatus">
+                <option value="active"${customer.billingStatus === "active" ? " selected" : ""}>Active</option>
+                <option value="paused"${customer.billingStatus === "paused" ? " selected" : ""}>Paused</option>
+                <option value="pending"${customer.billingStatus === "pending" ? " selected" : ""}>Pending</option>
+                <option value="canceled"${customer.billingStatus === "canceled" ? " selected" : ""}>Canceled</option>
+              </select>
+            </label>
+            <label>
+              Start date
+              <input type="date" name="startDate" value="${escapeHtml(customer.startDate || "")}" />
+            </label>
+            <label>
+              Last paid date
+              <input type="date" name="lastPaidDate" value="${escapeHtml(customer.lastPaidDate || "")}" />
+            </label>
+            <label>
+              Next invoice date
+              <input type="date" name="nextInvoiceDate" value="${escapeHtml(customer.nextInvoiceDate || "")}" />
+            </label>
+            <label>
+              Internal note
+              <textarea name="note" rows="3" placeholder="Add customer notes, billing context, or next steps."></textarea>
+            </label>
+            <div class="contact-actions">
+              <button class="button button-primary" type="submit">Save customer</button>
+            </div>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
           <p><strong>Latest note:</strong> ${escapeHtml(customer.internalNotes?.[0]?.body || "No internal notes yet.")}</p>
         </article>
       `
     )
     .join("");
+
+  customersList.querySelectorAll(".customer-form").forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const customerId = form.dataset.customerId;
+      const formData = new FormData(form);
+      const payload = {
+        monthlyFee: Number(formData.get("monthlyFee")),
+        billingStatus: String(formData.get("billingStatus") || ""),
+        startDate: String(formData.get("startDate") || ""),
+        lastPaidDate: String(formData.get("lastPaidDate") || ""),
+        nextInvoiceDate: String(formData.get("nextInvoiceDate") || ""),
+        note: String(formData.get("note") || "").trim(),
+      };
+
+      setStatus(form, "Saving customer details...");
+
+      try {
+        const response = await fetch(`/api/customers/${encodeURIComponent(customerId)}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to save customer");
+        }
+
+        const customersResponse = await fetch("/api/customers");
+        if (!customersResponse.ok) {
+          throw new Error("Failed to refresh customers");
+        }
+
+        const customersData = await customersResponse.json();
+        renderCustomers(Array.isArray(customersData) ? customersData : []);
+      } catch {
+        setStatus(form, "Could not save customer details. Try again.", true);
+      }
+    });
+  });
 };
 
 const buildMockup = (lead) => {
@@ -538,7 +629,7 @@ const buildEmailDraft = (lead) => {
       `Suggested structure: hero, services, proof, why choose you, and a strong contact CTA`,
     ],
     closing: `If this direction feels aligned, the next step would be to confirm scope, prioritize the essential pages, and move into the first design pass.`,
-    signoff: "Your Agency Name",
+    signoff: "Plipit",
   };
 };
 
