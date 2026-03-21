@@ -132,7 +132,7 @@ const writeLeads = (leads) => {
 const readCustomers = () => {
   ensureStorage();
   return JSON.parse(fs.readFileSync(CUSTOMERS_FILE, "utf8")).map((customer) => ({
-    monthlyFee: 75,
+    monthlyFee: 99,
     billingStatus: "active",
     internalNotes: [],
     startDate: "",
@@ -357,7 +357,7 @@ const upsertCustomerFromLead = (lead) => {
     existing.leadStatus = lead.pipelineStatus || getPipelineStatus(lead);
     existing.updatedAt = timestamp;
     existing.billingStatus = existing.billingStatus || "active";
-    existing.monthlyFee = Number(existing.monthlyFee) || 75;
+    existing.monthlyFee = Number(existing.monthlyFee) || 99;
     existing.startDate = existing.startDate || timestamp.slice(0, 10);
     existing.lastPaidDate = existing.lastPaidDate || "";
     existing.nextInvoiceDate = existing.nextInvoiceDate || "";
@@ -372,7 +372,7 @@ const upsertCustomerFromLead = (lead) => {
       projectType: lead.projectType || "",
       goal: lead.goal || "",
       style: lead.style || "",
-      monthlyFee: 75,
+      monthlyFee: 99,
       billingStatus: "active",
       startDate: timestamp.slice(0, 10),
       lastPaidDate: "",
