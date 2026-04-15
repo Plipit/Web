@@ -3,12 +3,510 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>Plipit | Websites For Local Businesses</title>
     <script type="module" crossorigin src="/assets/index-apm0Cycx.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CTsQJ0ey.css">
+    <style>
+      [class*="absolute inset-x-0 bottom-0 z-10 border-t border-white/8 bg-gradient-to-b"] {
+        border-top: 0 !important;
+        box-shadow: none !important;
+      }
+
+      .demo-card-click-target {
+        position: absolute;
+        inset: 0;
+        z-index: 35;
+        display: block;
+        border-radius: 1.5rem;
+      }
+
+      .single-demo-layout {
+        display: block !important;
+      }
+
+      .single-demo-layout > article {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .single-demo-layout > *:not(article) {
+        display: none !important;
+      }
+
+      .demo-card-click-target:focus-visible {
+        outline: 2px solid rgba(99, 102, 241, 0.9);
+        outline-offset: -4px;
+      }
+
+      .demo-preview-collage {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 56px;
+        bottom: 144px;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.45fr 0.95fr;
+        gap: 12px;
+        pointer-events: none;
+      }
+
+      .demo-preview-panel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 10, 12, 0.45);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .demo-preview-panel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .demo-preview-panel::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.28));
+      }
+
+      .demo-home-preview {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        overflow: hidden;
+        border-radius: inherit;
+        background:
+          linear-gradient(180deg, rgba(5, 8, 5, 0.12), rgba(5, 8, 5, 0.48)),
+          url("/assets/landscaping-preview.webp") center/cover no-repeat;
+      }
+
+      .demo-home-preview::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.38)),
+          radial-gradient(circle at 78% 78%, rgba(190, 214, 86, 0.16), transparent 22%);
+        pointer-events: none;
+      }
+
+      .demo-home-nav {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        background: rgba(255, 255, 255, 0.94);
+        color: #2f6a32;
+        z-index: 2;
+      }
+
+      .demo-home-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font: 800 11px/1 "Inter", sans-serif;
+        letter-spacing: 0.02em;
+      }
+
+      .demo-home-brand-mark {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        border: 2px solid #2f6a32;
+        position: relative;
+      }
+
+      .demo-home-brand-mark::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        right: 1px;
+        top: 2px;
+        border-radius: 8px 8px 8px 0;
+        border: 2px solid #2f6a32;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(32deg);
+      }
+
+      .demo-home-links {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #7d654b;
+        font: 700 9px/1 "Inter", sans-serif;
+      }
+
+      .demo-home-links span:first-child {
+        color: #2f6a32;
+        border-bottom: 2px solid #2f6a32;
+        padding-bottom: 2px;
+      }
+
+      .demo-home-cta {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #2f6a32;
+        color: #fff;
+        font: 800 9px/1 "Inter", sans-serif;
+      }
+
+      .demo-home-content {
+        position: absolute;
+        left: 34px;
+        right: 34px;
+        top: 94px;
+        max-width: 400px;
+        z-index: 2;
+        color: #fff;
+      }
+
+      .demo-home-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(47, 106, 50, 0.92);
+        font: 800 9px/1 "Inter", sans-serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .demo-home-title {
+        margin-top: 16px;
+        font: 800 44px/0.94 "Outfit", sans-serif;
+        letter-spacing: -0.04em;
+        text-wrap: balance;
+      }
+
+      .demo-home-title em {
+        color: #7bb35a;
+        font-style: normal;
+      }
+
+      .demo-home-copy {
+        margin-top: 16px;
+        max-width: 350px;
+        color: rgba(255, 255, 255, 0.92);
+        font: 500 12px/1.6 "Inter", sans-serif;
+      }
+
+      .demo-home-actions {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .demo-home-actions span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 118px;
+        padding: 11px 14px;
+        border-radius: 999px;
+        font: 800 10px/1 "Inter", sans-serif;
+      }
+
+      .demo-home-actions span:first-child {
+        background: #2f6a32;
+        color: #fff;
+      }
+
+      .demo-home-actions span:last-child {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+
+      .demo-home-thumbnail {
+        position: absolute;
+        right: 28px;
+        bottom: 28px;
+        width: 156px;
+        height: 98px;
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: url("/assets/landscaping-preview-2.jpg") center/cover no-repeat;
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+        z-index: 2;
+      }
+
+      .demo-home-thumbnail::after {
+        content: "Gallery";
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: rgba(8, 8, 10, 0.72);
+        color: #fff;
+        font: 800 8px/1 "Inter", sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      #scroll-more-button {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 14px 11px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(8, 8, 8, 0.78);
+        color: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.26);
+        font: 800 11px/1 "Inter", sans-serif;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        cursor: pointer;
+        z-index: 200;
+        transition: opacity 180ms ease, transform 180ms ease, border-color 180ms ease;
+      }
+
+      #scroll-more-button.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(10px);
+      }
+
+      #scroll-more-button:hover {
+        border-color: rgba(255, 255, 255, 0.24);
+        transform: translateX(-50%) translateY(-2px);
+      }
+
+      #scroll-more-button .scroll-arrow {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: scroll-more-bounce 1.6s ease-in-out infinite;
+      }
+
+      #scroll-more-button .scroll-arrow svg {
+        width: 12px;
+        height: 12px;
+        display: block;
+      }
+
+      @keyframes scroll-more-bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(4px); }
+      }
+
+      @media (max-width: 768px) {
+        .demo-home-links span:nth-child(n + 3),
+        .demo-home-links .demo-home-cta,
+        .demo-home-thumbnail {
+          display: none;
+        }
+
+        .demo-home-content {
+          left: 22px;
+          right: 22px;
+          top: 86px;
+          max-width: 260px;
+        }
+
+        .demo-home-title {
+          font-size: 30px;
+        }
+
+        .demo-home-copy {
+          max-width: 250px;
+          font-size: 11px;
+        }
+
+        .demo-home-actions {
+          flex-wrap: wrap;
+        }
+
+        .demo-home-actions span {
+          min-width: 0;
+          flex: 1 1 auto;
+        }
+
+        #scroll-more-button {
+          bottom: 16px;
+          font-size: 10px;
+          letter-spacing: 0.14em;
+          padding: 10px 12px 10px 16px;
+        }
+
+        #scroll-more-button .scroll-arrow {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        Array.from(document.body.children).forEach(function (node) {
+          if (!(node instanceof HTMLElement) || node.id === "root") {
+            return;
+          }
+
+          var style = window.getComputedStyle(node);
+          var rect = node.getBoundingClientRect();
+          var looksLikeBrokenTopBar =
+            (node.id === "scroll-progress-bar" ||
+              (style.position === "fixed" &&
+                rect.top <= 4 &&
+                rect.height <= 6 &&
+                rect.width >= window.innerWidth * 0.15 &&
+                (style.backgroundImage.indexOf("gradient") !== -1 ||
+                  style.backgroundColor !== "rgba(0, 0, 0, 0)")));
+
+          if (looksLikeBrokenTopBar) {
+            node.remove();
+          }
+        });
+
+        var button = document.createElement("button");
+        button.id = "scroll-more-button";
+        button.type = "button";
+        button.innerHTML =
+          '<span>Scroll for more</span><span class="scroll-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6.5L8 10L12 6.5" stroke="rgba(255,255,255,0.88)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+
+        button.addEventListener("click", function () {
+          var startY = window.scrollY;
+          var nextSection = document.querySelector("#demos, #process, section:nth-of-type(2)");
+          var targetY = nextSection
+            ? Math.max(nextSection.getBoundingClientRect().top + window.scrollY + 24, startY + 482)
+            : startY + Math.max(window.innerHeight, 704);
+          var distance = Math.max(targetY - startY, Math.max(window.innerHeight * 0.9, 624));
+          var duration = 700;
+          var startTime = null;
+
+          var easeInOutCubic = function (t) {
+            return t < 0.5
+              ? 4 * t * t * t
+              : 1 - Math.pow(-2 * t + 2, 3) / 2;
+          };
+
+          var animateScroll = function (timestamp) {
+            if (!startTime) {
+              startTime = timestamp;
+            }
+
+            var elapsed = timestamp - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var eased = easeInOutCubic(progress);
+
+            window.scrollTo({
+              top: startY + distance * eased,
+              behavior: "auto",
+            });
+
+            if (progress < 1) {
+              window.requestAnimationFrame(animateScroll);
+            }
+          };
+
+          window.requestAnimationFrame(animateScroll);
+        });
+
+        document.body.appendChild(button);
+
+        var syncVisibility = function () {
+          button.classList.toggle("is-hidden", window.scrollY > 220);
+        };
+
+        syncVisibility();
+        window.addEventListener("scroll", syncVisibility, { passive: true });
+
+        var installSanJoseDemo = function () {
+          var demoSection = document.querySelector("#demos");
+          if (!demoSection) {
+            return false;
+          }
+
+          var demoCards = Array.from(demoSection.querySelectorAll("article"));
+          if (!demoCards.length) {
+            return false;
+          }
+
+          var card = demoCards.find(function (item) {
+            var heading = item.querySelector("h3");
+            return heading && heading.textContent.trim() === "San Jose Landscaping";
+          }) || demoCards[0];
+
+          demoCards.forEach(function (item) {
+            if (item !== card) {
+              item.remove();
+            }
+          });
+
+          var grid = demoSection.querySelector(".grid");
+          if (grid) {
+            grid.classList.add("single-demo-layout");
+          }
+
+          card.className = "demo-custom-card";
+          card.style.position = "relative";
+          card.style.display = "block";
+          card.style.width = "100%";
+          card.style.maxWidth = "860px";
+          card.style.margin = "0 auto";
+          card.style.cursor = "pointer";
+          card.innerHTML =
+            '<a class="demo-card-click-target" href="https://san-jose-landscaping.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Open San Jose Landscaping demo"></a>' +
+            '<div style="position:relative;padding:14px;border-radius:32px;border:1px solid rgba(255,255,255,0.09);background:linear-gradient(180deg, rgba(19,19,22,0.98), rgba(10,10,12,0.98));box-shadow:inset 0 1px 0 rgba(255,255,255,0.05), 0 28px 90px rgba(0,0,0,0.34);">' +
+            '  <div style="position:relative;min-height:620px;overflow:hidden;border-radius:28px;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(180deg, rgba(255,255,255,0.08) 0 72px, rgba(255,255,255,0) 72px), linear-gradient(180deg, rgba(5,8,5,0.1), rgba(5,8,5,0.4)), url(/assets/landscaping-preview.webp) center 68%/cover no-repeat;">' +
+            '  <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.03) 0 74px, rgba(0,0,0,0.12) 74px 100%), radial-gradient(circle at 75% 82%, rgba(190,214,86,0.14), transparent 24%);"></div>' +
+            '  <div style="position:absolute;left:18px;right:18px;top:18px;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-radius:22px 22px 0 0;background:rgba(255,255,255,0.98);color:#2f6a32;">' +
+            '    <div style="display:inline-flex;align-items:center;gap:11px;font:800 14px/1 Inter,sans-serif;"><span style="width:19px;height:19px;border-radius:999px;border:2px solid #2f6a32;display:inline-block;position:relative;"></span><span>San Jose Landscaping</span></div>' +
+            '    <div style="display:flex;align-items:center;gap:19px;color:#8a6d4e;font:700 11px/1 Inter,sans-serif;"><span style="color:#2f6a32;border-bottom:2px solid #2f6a32;padding-bottom:3px;">Home</span><span>Services</span><span>Gallery</span><span>Contact</span><span style="padding:13px 18px;border-radius:999px;background:#2f6a32;color:#fff;font-weight:800;">Free Quote</span></div>' +
+            '  </div>' +
+            '  <div style="position:absolute;left:34px;top:112px;z-index:3;max-width:500px;color:#fff;">' +
+            '    <div style="display:inline-flex;align-items:center;padding:9px 14px;border-radius:999px;background:rgba(47,106,50,.92);font:800 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;">San Jose\'s #1 Landscaper</div>' +
+            '    <div style="margin-top:18px;font:800 60px/.9 Outfit,sans-serif;letter-spacing:-.055em;text-shadow:0 8px 30px rgba(0,0,0,.18);">Transform Your Yard Into Something <span style="color:#7bb35a;">Beautiful</span></div>' +
+            '    <div style="margin-top:18px;max-width:420px;color:rgba(255,255,255,.95);font:500 14px/1.6 Inter,sans-serif;text-shadow:0 4px 18px rgba(0,0,0,.16);">Professional, reliable, and affordable landscaping services tailored to the San Jose climate.</div>' +
+            '    <div style="margin-top:24px;display:flex;gap:12px;"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:150px;padding:16px 20px;border-radius:999px;background:#2f6a32;color:#fff;font:800 13px/1 Inter,sans-serif;">Get a Free Quote</span><span style="display:inline-flex;align-items:center;justify-content:center;min-width:150px;padding:16px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);backdrop-filter:blur(4px);color:#fff;font:800 13px/1 Inter,sans-serif;">View Our Work</span></div>' +
+            '  </div>' +
+            '  <div style="position:absolute;right:54px;top:250px;z-index:3;width:170px;height:108px;overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.14);background:url(/assets/landscaping-preview-2.jpg) center/cover no-repeat;box-shadow:0 18px 35px rgba(0,0,0,.28);"><div style="position:absolute;left:11px;bottom:11px;padding:6px 9px;border-radius:999px;background:rgba(8,8,10,.72);color:#fff;font:800 9px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;">Gallery</div></div>' +
+            '  </div>' +
+            '<div style="position:relative;z-index:3;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:18px 6px 6px;">' +
+            '  <div style="min-width:0;"><div style="display:inline-flex;align-items:center;margin-bottom:14px;padding:7px 13px;border-radius:999px;background:#4f46e5;color:#fff;font:800 10px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;">Service / Local</div><h3 style="margin:0 0 10px;color:#fff;font:800 34px/1 Outfit,sans-serif;letter-spacing:-.03em;">San Jose Landscaping</h3><p style="margin:0;color:rgba(255,255,255,.42);font:500 16px/1.5 Inter,sans-serif;">Client-facing landscaping demo for the San Jose market.</p></div>' +
+            '  <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;flex:0 0 auto;margin-top:auto;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 5H19V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14L19 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 14V18C19 18.5304 18.7893 19.0391 18.4142 19.4142C18.0391 19.7893 17.5304 20 17 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18V7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+            '</div>' +
+            '</div>';
+
+          return true;
+        };
+
+        var tries = 0;
+        var timer = window.setInterval(function () {
+          tries += 1;
+          if (installSanJoseDemo() || tries > 20) {
+            window.clearInterval(timer);
+          }
+        }, 250);
+      });
+    </script>
   </body>
 </html>
-
